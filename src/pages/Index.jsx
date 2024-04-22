@@ -48,17 +48,6 @@ const Index = () => {
     </VStack>
   );
 
-  const SidebarContent = () => (
-    <VStack align="flex-start" p={5}>
-      <Button leftIcon={<FaHome />} justifyContent="flex-start" w="full">
-        Home
-      </Button>
-      <Button leftIcon={<FaUserCog />} justifyContent="flex-start" w="full">
-        Settings
-      </Button>
-    </VStack>
-  );
-
   return (
     <Flex height="100vh" alignItems="center" justifyContent="center" bg={useColorModeValue("gray.50", "gray.800")}>
       <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
@@ -80,9 +69,7 @@ const Index = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px">Navigation</DrawerHeader>
-          <DrawerBody>
-            <SidebarContent />
-          </DrawerBody>
+          
         </DrawerContent>
       </Drawer>
     </Flex>
