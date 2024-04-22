@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import { Box, Button, Flex, FormControl, FormLabel, Input, Stack, Text, useColorModeValue, VStack, Heading, Link, Icon, useDisclosure, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from "@chakra-ui/react";
+
+const { login } = useAuth();
 import { FaSignInAlt, FaUserPlus, FaBars, FaHome, FaUserCog } from "react-icons/fa";
 
 const Index = () => {
@@ -20,7 +23,7 @@ const Index = () => {
         <FormLabel htmlFor="password">Password</FormLabel>
         <Input id="password" type="password" />
       </FormControl>
-      <Button leftIcon={<FaSignInAlt />} colorScheme="blue" w="full" mt={4}>
+      <Button leftIcon={<FaSignInAlt />} colorScheme="blue" w="full" mt={4} onClick={() => login({ email: "user@example.com", id: "123", accessToken: "abc123" })}>
         Sign In
       </Button>
       <Link color="blue.500" onClick={toggleForm}>
@@ -39,7 +42,7 @@ const Index = () => {
         <FormLabel htmlFor="password">Password</FormLabel>
         <Input id="password" type="password" />
       </FormControl>
-      <Button leftIcon={<FaUserPlus />} colorScheme="blue" w="full" mt={4}>
+      <Button leftIcon={<FaUserPlus />} colorScheme="blue" w="full" mt={4} onClick={() => login({ email: "newuser@example.com", id: "456", accessToken: "def456" })}>
         Sign Up
       </Button>
       <Link color="blue.500" onClick={toggleForm}>
@@ -69,7 +72,6 @@ const Index = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px">Navigation</DrawerHeader>
-          
         </DrawerContent>
       </Drawer>
     </Flex>
